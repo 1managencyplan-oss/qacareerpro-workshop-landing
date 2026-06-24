@@ -220,6 +220,24 @@ h1,h2,h3{line-height:1.15;}
 .stat .num{font-size:32px;font-weight:800;color:var(--gold);}
 .stat .lbl{font-size:13px;color:var(--muted);margin-top:6px;}
 
+/* ---------- What You'll Learn (webinar parts) ---------- */
+.parts-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:1000px;margin:0 auto;}
+.part-card{
+  background:var(--panel2);border:2px solid var(--gold);border-radius:18px;
+  padding:18px;box-shadow:0 20px 50px rgba(255,194,51,.12);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.part-card:hover{transform:translateY(-4px);box-shadow:0 24px 60px rgba(255,194,51,.22);}
+.part-photo{border-radius:12px;overflow:hidden;margin-bottom:18px;border:1px solid var(--line);}
+.part-photo img{width:100%;height:230px;object-fit:cover;}
+.part-tag{
+  display:inline-block;color:var(--gold);font-weight:800;font-size:13px;
+  letter-spacing:.5px;margin-bottom:8px;
+}
+.part-card h4{font-size:17px;margin-bottom:12px;line-height:1.4;}
+.part-quote{color:var(--muted);font-style:italic;font-size:14.5px;line-height:1.6;}
+.part-quote b{color:var(--text);font-style:normal;text-decoration:underline;}
+
 /* ---------- Problem section (redesigned: numbered pain-point list + stat strip) ---------- */
 .problem-list{max-width:760px;margin:0 auto 40px;display:flex;flex-direction:column;gap:14px;}
 .problem-row2{
@@ -485,6 +503,7 @@ footer a.wa{color:var(--green);font-weight:700;}
   .stats{grid-template-columns:repeat(2,1fr);}
   .problem-stats{grid-template-columns:1fr;}
   .solution-grid{grid-template-columns:1fr;}
+  .parts-grid{grid-template-columns:1fr;}
   .process{grid-template-columns:1fr;gap:20px;}
   .pstep::before{display:none;}
   .founder-row{grid-template-columns:1fr;}
@@ -564,6 +583,28 @@ footer a.wa{color:var(--green);font-weight:700;}
       <div class="stat"><div class="num" data-count="90">0</div><div class="lbl">% Placement Rate</div></div>
       <div class="stat"><div class="num" data-count="4">0</div><div class="lbl">Months to Job</div></div>
       <div class="stat"><div class="num" data-count="50">0</div><div class="lbl">Hiring Partners</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL LEARN (webinar parts, real training photos) -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title reveal">The 3 Secrets That Separate Top 1% QA Engineers From the Crowd</h2>
+    <p class="section-sub reveal">Live inside the webinar — straight from real classroom sessions.</p>
+    <div class="parts-grid">
+      <div class="part-card reveal">
+        <div class="part-photo"><img src="assets/training/part1-mindset.jpg" alt="QA Career Pro live training session - mindset and strategy"></div>
+        <div class="part-tag">PART 01</div>
+        <h4>🧠 Mindset + Strategy of Job-Cracking QA Professionals</h4>
+        <p class="part-quote">"Your mindset writes your resume before your skills do."</p>
+      </div>
+      <div class="part-card reveal delay-2">
+        <div class="part-photo"><img src="assets/training/part2-skills.jpg" alt="QA Career Pro live training session - skills and tools"></div>
+        <div class="part-tag">PART 02</div>
+        <h4>🛠️ The Skills, Tools &amp; Frameworks That Get You Hired</h4>
+        <p class="part-quote">"You don't need to learn everything. You need to master <b>what matters</b>."</p>
+      </div>
     </div>
   </div>
 </section>
