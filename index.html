@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Software Testing Job in 3–4 Months — QA Career Pro</title>
+<style>
+:root{
+  --bg:#07080d;
+  --panel:#0e1018;
+  --panel2:#13151f;
+  --gold:#ffc233;
+  --gold2:#ffaa00;
+  --green:#2ee6a6;
+  --text:#f4f5f7;
+  --muted:#9aa0ad;
+  --line:rgba(255,255,255,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Segoe UI',Arial,sans-serif;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block;}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px;}
+a{color:inherit;text-decoration:none;}
+
+/* ---------- Animated background blobs ---------- */
+.bg-blobs{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;}
+.blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;animation:float 18s ease-in-out infinite;}
+.blob1{width:480px;height:480px;background:#ffae00;top:-120px;left:-100px;animation-duration:22s;}
+.blob2{width:420px;height:420px;background:#2ee6a6;top:40%;right:-140px;animation-duration:26s;animation-delay:2s;}
+.blob3{width:380px;height:380px;background:#ff5e7e;bottom:-160px;left:30%;animation-duration:30s;animation-delay:4s;}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1);}
+  33%{transform:translate(40px,-60px) scale(1.1);}
+  66%{transform:translate(-30px,40px) scale(0.95);}
+}
+
+/* ---------- Top urgency bar ---------- */
+.topbar{
+  position:relative;z-index:5;
+  background:linear-gradient(90deg,#1a1a1a,#222);
+  border-bottom:1px solid var(--line);
+  text-align:center;padding:10px 16px;
+  font-size:13px;font-weight:600;color:var(--gold);
+  letter-spacing:.3px;
+}
+.topbar span{color:#fff;}
+
+/* ---------- Webinar date/time badge ---------- */
+.webinar-date{
+  display:inline-flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center;
+  background:linear-gradient(120deg,rgba(255,194,51,.22),rgba(255,170,0,.14));
+  border:2px solid var(--gold);border-radius:14px;
+  padding:18px 30px;margin:18px auto 26px;
+  box-shadow:0 0 0 0 rgba(255,194,51,.45);
+  animation:wdGlow 2.4s ease-in-out infinite;
+}
+.webinar-date .wd-item{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:800;color:#fff;}
+.webinar-date .wd-item b{color:var(--gold);font-size:19px;}
+.webinar-date .wd-sep{color:rgba(255,194,51,.5);font-weight:300;}
+@keyframes wdGlow{
+  0%,100%{box-shadow:0 0 0 0 rgba(255,194,51,.45);}
+  50%{box-shadow:0 0 28px 4px rgba(255,194,51,.55);}
+}
+
+/* ---------- Sections base ---------- */
+section{position:relative;z-index:1;padding:80px 0;}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,194,51,.1);border:1px solid rgba(255,194,51,.35);
+  color:var(--gold);font-size:13px;font-weight:700;
+  padding:6px 14px;border-radius:30px;margin-bottom:18px;
+  text-transform:uppercase;letter-spacing:.6px;
+}
+h1,h2,h3{line-height:1.15;}
+.section-title{font-size:38px;font-weight:800;text-align:center;margin-bottom:14px;}
+.section-sub{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 50px;font-size:16px;}
+.gold{color:var(--gold);}
+.green{color:var(--green);}
+.highlight{
+  background:linear-gradient(120deg,var(--gold) 0%,var(--gold2) 100%);
+  color:#101010;padding:2px 10px;border-radius:6px;
+  box-shadow:0 4px 18px rgba(255,194,51,.35);
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal.delay-1{transition-delay:.1s;}
+.reveal.delay-2{transition-delay:.2s;}
+.reveal.delay-3{transition-delay:.3s;}
+.reveal.delay-4{transition-delay:.4s;}
+
+/* ---------- Hero ---------- */
+.hero{padding-top:60px;padding-bottom:40px;}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;}
+.hero h1{font-size:48px;font-weight:800;letter-spacing:-.5px;}
+.hero p.sub{color:var(--muted);font-size:18px;margin:20px 0 26px;}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
+.badge{
+  display:flex;align-items:center;gap:6px;
+  background:var(--panel2);border:1px solid var(--line);
+  padding:8px 14px;border-radius:8px;font-size:13px;color:#ddd;
+}
+.badge b{color:var(--green);}
+.cta-btn{
+  position:relative;overflow:hidden;
+  display:inline-flex;align-items:center;gap:12px;
+  background:linear-gradient(120deg,#ffe066,#ffc233 50%,#ffd23f);
+  color:#161200;font-weight:800;font-size:21px;
+  padding:22px 42px;border-radius:14px;border:none;cursor:pointer;
+  box-shadow:0 12px 36px rgba(255,194,51,.5);
+  transition:transform .2s ease, box-shadow .2s ease;
+  animation:pulse 2.4s ease-in-out infinite;
+}
+.cta-btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 16px 46px rgba(255,194,51,.7);}
+.cta-btn::after{
+  content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.65),transparent);
+  transform:skewX(-20deg);
+  animation:ctaShine 2.6s ease-in-out infinite;
+}
+@keyframes ctaShine{
+  0%{left:-60%;}
+  45%{left:120%;}
+  100%{left:120%;}
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 10px 30px rgba(255,194,51,.45);}
+  50%{box-shadow:0 10px 44px rgba(255,194,51,.75);}
+}
+.strike{text-decoration:line-through;}
+.cta-price{display:inline-flex;align-items:center;gap:8px;}
+.cta-price .strike{opacity:.65;font-weight:700;font-size:16px;}
+.cta-note{margin-top:12px;font-size:13px;color:var(--muted);}
+
+.hero-photo{
+  position:relative;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 30px 60px rgba(0,0,0,.5);
+  animation:floaty 6s ease-in-out infinite;
+}
+@keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+.hero-photo img{width:100%;height:520px;object-fit:cover;object-position:top center;}
+.hero-photo .ribbon{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.85));
+  padding:24px;
+}
+.live-pill{
+  position:absolute;top:18px;left:18px;z-index:3;
+  background:#ff3b3b;color:#fff;font-size:11px;font-weight:800;
+  padding:5px 10px;border-radius:20px;display:flex;align-items:center;gap:6px;
+}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.2s infinite;}
+@keyframes blink{50%{opacity:.2;}}
+
+/* ---------- Video row (top video block, like reference site) ---------- */
+.video-row{
+  display:grid;grid-template-columns:1.5fr 1fr;gap:22px;
+  margin-top:46px;align-items:stretch;
+}
+.video-card{
+  background:var(--panel2);border:1px solid var(--gold);border-radius:16px;
+  overflow:hidden;box-shadow:0 30px 70px rgba(255,170,0,.18);
+}
+.video-card-head{
+  padding:14px 20px;font-weight:700;font-size:14px;color:#fff;
+  background:linear-gradient(90deg,#1c1604,#15131d);border-bottom:1px solid var(--line);
+}
+.video-frame{position:relative;overflow:hidden;}
+.video-frame img{width:100%;height:380px;object-fit:cover;object-position:top center;}
+.video-frame video{width:100%;height:380px;object-fit:cover;display:block;background:#000;}
+.video-frame .ribbon{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.85));padding:20px;}
+.play-btn{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:78px;height:78px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(120deg,var(--gold),var(--gold2));
+  color:#101010;font-size:26px;z-index:3;
+  box-shadow:0 0 0 0 rgba(255,194,51,.6);
+  animation:playpulse 2s infinite;
+}
+@keyframes playpulse{
+  0%{box-shadow:0 0 0 0 rgba(255,194,51,.55);}
+  70%{box-shadow:0 0 0 22px rgba(255,194,51,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,194,51,0);}
+}
+.live-points{
+  background:var(--panel2);border:1px solid var(--line);border-radius:16px;
+  padding:22px;display:flex;flex-direction:column;gap:16px;justify-content:center;
+}
+.live-points-head{display:flex;justify-content:flex-end;}
+.live-dot-ring{
+  display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;
+  color:#ff5e7e;border:1px solid #ff5e7e;border-radius:20px;padding:4px 10px;
+}
+.live-dot-ring::before{content:"";width:6px;height:6px;border-radius:50%;background:#ff5e7e;animation:blink 1.2s infinite;}
+.point{display:flex;flex-wrap:nowrap;gap:10px;font-size:13.5px;color:#d8dadf;line-height:1.55;align-items:flex-start;}
+.pdot{
+  flex-shrink:0;margin-top:5px;width:9px;height:9px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 0 4px rgba(255,194,51,.18);
+}
+.ptext{flex:1 1 auto;min-width:0;text-align:left;}
+.ptext b{color:#fff;}
+
+/* ---------- Stats strip ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  margin-top:50px;
+}
+.stat{
+  background:var(--panel2);border:1px solid var(--line);border-radius:14px;
+  padding:24px;text-align:center;
+}
+.stat .num{font-size:32px;font-weight:800;color:var(--gold);}
+.stat .lbl{font-size:13px;color:var(--muted);margin-top:6px;}
+
+/* ---------- Problem section (redesigned: numbered pain-point list + stat strip) ---------- */
+.problem-list{max-width:760px;margin:0 auto 40px;display:flex;flex-direction:column;gap:14px;}
+.problem-row2{
+  display:flex;align-items:center;gap:18px;
+  background:linear-gradient(180deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);border-left:3px solid #ff5e7e;
+  padding:20px 22px;border-radius:14px;
+  transition:transform .25s ease,border-color .25s ease;
+}
+.problem-row2:hover{transform:translateX(4px);border-left-color:var(--gold);}
+.problem-num{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  background:rgba(255,94,126,.12);border:1px solid rgba(255,94,126,.35);
+  color:#ff5e7e;font-weight:800;font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+}
+.problem-row2 p{margin:0;font-size:15.5px;color:var(--text);font-weight:600;}
+.problem-stats{
+  max-width:900px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;
+}
+.problem-stat{
+  background:var(--panel2);padding:28px 18px;text-align:center;
+}
+.problem-stat .num{font-size:38px;font-weight:900;color:var(--gold);line-height:1;}
+.problem-stat .lbl{margin-top:8px;font-size:12.5px;color:var(--muted);}
+
+/* ---------- Solution cards ---------- */
+.solution-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.scard{
+  position:relative;background:var(--panel2);border:1px solid var(--line);border-radius:18px;
+  padding:32px 26px;text-align:center;overflow:hidden;
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+}
+.scard:hover{transform:translateY(-8px);border-color:rgba(255,194,51,.45);box-shadow:0 20px 50px rgba(255,194,51,.12);}
+.scard.scard-highlight{border-color:rgba(255,194,51,.5);box-shadow:0 0 0 1px rgba(255,194,51,.25),0 20px 50px rgba(255,194,51,.12);}
+.scard-num{
+  position:absolute;top:10px;right:18px;font-size:46px;font-weight:800;
+  color:rgba(255,255,255,.05);letter-spacing:-1px;line-height:1;
+}
+.icon-ring{
+  width:84px;height:84px;border-radius:50%;
+  border:2px solid var(--gold);margin:0 auto 20px;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle,rgba(255,194,51,.08),transparent 70%);
+  position:relative;z-index:1;
+}
+.scard .icon{font-size:32px;}
+.scard h3{font-size:17px;margin-bottom:10px;position:relative;z-index:1;}
+.scard p{color:var(--muted);font-size:13.5px;line-height:1.6;position:relative;z-index:1;}
+
+/* ---------- Process timeline (redesigned: connected horizontal stepper) ---------- */
+.process{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:0;
+  max-width:1100px;margin:0 auto;position:relative;
+}
+.pstep{
+  position:relative;text-align:center;padding:0 12px;
+}
+.pstep::before{
+  content:'';position:absolute;top:27px;left:-12px;right:calc(100% - 12px);
+  height:2px;background:linear-gradient(90deg,var(--gold),var(--line));
+  transform:scaleX(0);transform-origin:left center;
+  transition:transform .6s ease;
+}
+.pstep:first-child::before{display:none;}
+.process.animate .pstep::before{transform:scaleX(1);}
+.process.animate .pstep:nth-child(2)::before{transition-delay:.15s;}
+.process.animate .pstep:nth-child(3)::before{transition-delay:.45s;}
+.process.animate .pstep:nth-child(4)::before{transition-delay:.75s;}
+.process.animate .pstep:nth-child(5)::before{transition-delay:1.05s;}
+.pstep .pnum{
+  width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  color:#101010;font-weight:800;font-size:20px;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;position:relative;z-index:1;
+  box-shadow:0 8px 22px rgba(255,194,51,.4);
+  border:4px solid var(--bg);
+  transform:scale(0);opacity:0;
+  transition:transform .5s cubic-bezier(.34,1.56,.64,1), opacity .3s ease;
+}
+.process.animate .pstep .pnum{transform:scale(1);opacity:1;}
+.process.animate .pstep:nth-child(1) .pnum{transition-delay:0s;}
+.process.animate .pstep:nth-child(2) .pnum{transition-delay:.3s;}
+.process.animate .pstep:nth-child(3) .pnum{transition-delay:.6s;}
+.process.animate .pstep:nth-child(4) .pnum{transition-delay:.9s;}
+.process.animate .pstep:nth-child(5) .pnum{transition-delay:1.2s;}
+.pstep h4,.pstep p{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;}
+.process.animate .pstep h4,.process.animate .pstep p{opacity:1;transform:translateY(0);}
+.process.animate .pstep:nth-child(1) h4,.process.animate .pstep:nth-child(1) p{transition-delay:.15s;}
+.process.animate .pstep:nth-child(2) h4,.process.animate .pstep:nth-child(2) p{transition-delay:.45s;}
+.process.animate .pstep:nth-child(3) h4,.process.animate .pstep:nth-child(3) p{transition-delay:.75s;}
+.process.animate .pstep:nth-child(4) h4,.process.animate .pstep:nth-child(4) p{transition-delay:1.05s;}
+.process.animate .pstep:nth-child(5) h4,.process.animate .pstep:nth-child(5) p{transition-delay:1.35s;}
+.pstep h4{font-size:14.5px;margin-bottom:6px;}
+.pstep p{font-size:12px;color:var(--muted);line-height:1.5;}
+
+/* ---------- Founder section ---------- */
+.founder-row{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center;}
+.founder-photo{
+  border-radius:20px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 30px 60px rgba(0,0,0,.5);
+}
+.founder-photo img{width:100%;height:420px;object-fit:cover;object-position:center 5%;}
+.founder-stats{display:flex;gap:30px;margin-top:8px;}
+.founder-stats div{display:flex;flex-direction:column;}
+.founder-stats b{font-size:24px;color:var(--gold);font-weight:800;}
+.founder-stats span{font-size:12px;color:var(--muted);margin-top:2px;}
+
+/* ---------- Featured testimonial (big screen, stacked one after another) ---------- */
+.featured-test-list{
+  display:flex;flex-direction:column;gap:18px;
+  max-width:640px;margin:20px auto 0;
+}
+.featured-test-card{
+  background:var(--panel2);border:1px solid var(--line);
+  border-radius:22px;padding:18px;box-shadow:0 25px 60px rgba(0,0,0,.4);
+}
+.featured-test-video{position:relative;}
+.featured-test-video video{
+  width:100%;height:420px;border-radius:16px;background:#000;display:block;object-fit:cover;
+}
+.featured-test-tag{
+  position:absolute;top:14px;left:14px;display:flex;align-items:center;gap:8px;
+  background:rgba(16,16,16,.75);backdrop-filter:blur(4px);border-radius:10px;
+  padding:8px 12px;
+}
+.featured-test-tag img{width:26px;height:26px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.featured-test-tag span{font-size:13px;font-weight:700;color:#fff;}
+.featured-test-caption{
+  font-style:italic;font-size:16px;line-height:1.5;color:var(--text);
+  margin-top:18px;text-align:center;
+}
+.featured-test-attrib{
+  font-size:14px;font-weight:700;color:var(--gold);
+  margin-top:8px;text-align:center;
+}
+
+/* ---------- Testimonial carousel ---------- */
+.test-track-wrap{overflow:hidden;position:relative;}
+.test-track{display:flex;gap:20px;animation:scrollLeft 32s linear infinite;width:max-content;}
+.test-track-wrap:hover .test-track{animation-play-state:paused;}
+@keyframes scrollLeft{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+.tcard{
+  width:280px;background:var(--panel2);border:1px solid var(--line);
+  border-radius:16px;padding:22px;flex-shrink:0;
+}
+.tcard-video{
+  width:100%;height:220px;border-radius:12px;margin-bottom:16px;
+  background:#000;display:block;object-fit:cover;
+}
+.tcard .who{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(120deg,var(--gold),var(--gold2));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#101010;
+}
+.avatar-photo{width:42px;height:42px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--line);}
+.tcard .name{font-weight:700;font-size:14px;}
+.tcard .role{font-size:12px;color:var(--muted);}
+.tcard .quote{font-size:13px;color:#d8dadf;line-height:1.5;}
+.stars{color:var(--gold);font-size:13px;margin-top:10px;}
+
+/* ---------- Comparison table ---------- */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.compare .col{border-radius:16px;padding:26px;border:1px solid var(--line);}
+.compare .old{background:rgba(255,94,126,.06);}
+.compare .new{background:rgba(46,230,166,.07);}
+.compare h3{margin-bottom:16px;font-size:18px;}
+.compare .row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;}
+.compare .row:last-child{border-bottom:none;}
+.compare .mark{font-weight:900;}
+.old .mark{color:#ff5e7e;}
+.new .mark{color:var(--green);}
+
+/* ---------- Bonuses ---------- */
+.bonus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.bonus{
+  background:var(--panel2);border:1px solid rgba(255,194,51,.25);
+  border-radius:14px;padding:22px;text-align:center;position:relative;
+}
+.bonus .tag{
+  position:absolute;top:-12px;right:14px;background:var(--green);color:#06140f;
+  font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;
+}
+.bonus .icon{font-size:26px;margin-bottom:10px;}
+.bonus h4{font-size:14px;margin-bottom:6px;}
+.bonus p{font-size:12px;color:var(--muted);}
+.bonus .price{margin-top:10px;font-size:12px;}
+.bonus .strike{color:var(--muted);text-decoration:line-through;margin-right:6px;}
+
+/* ---------- Pricing ---------- */
+.price-box{
+  max-width:480px;margin:0 auto;background:var(--panel2);
+  border:1px solid rgba(255,194,51,.4);border-radius:20px;
+  padding:36px;text-align:center;
+  box-shadow:0 20px 60px rgba(255,170,0,.15);
+}
+.price-box .old{color:var(--muted);text-decoration:line-through;font-size:20px;}
+.price-box .now{font-size:52px;font-weight:900;color:var(--gold);}
+.price-box .seats{margin-top:10px;color:#ff5e7e;font-size:13px;font-weight:700;}
+
+/* ---------- FAQ ---------- */
+.faq-item{
+  background:var(--panel2);border:1px solid var(--line);border-radius:12px;
+  margin-bottom:12px;overflow:hidden;
+}
+.faq-q{
+  padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;
+  align-items:center;font-weight:600;font-size:15px;
+}
+.faq-q .plus{transition:transform .25s ease;color:var(--gold);font-size:20px;}
+.faq-item.open .plus{transform:rotate(45deg);}
+.faq-a{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .3s ease, padding .3s ease;color:var(--muted);font-size:14px;}
+.faq-item.open .faq-a{padding:0 20px 18px;max-height:200px;}
+
+/* ---------- Footer ---------- */
+footer{padding:50px 0 120px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line);}
+footer a.wa{color:var(--green);font-weight:700;}
+
+/* ---------- Sticky CTA bar ---------- */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:50;
+  background:#0c0d12;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 22px;backdrop-filter:blur(8px);
+}
+.sticky-cta .price{font-weight:800;color:var(--gold);}
+.sticky-cta .left p{font-size:12px;color:var(--muted);}
+.sticky-cta .btn2{
+  position:relative;overflow:hidden;
+  background:linear-gradient(120deg,#ffe066,#ffc233 50%,#ffd23f);color:#161200;
+  font-weight:800;font-size:16px;padding:16px 28px;border-radius:12px;border:none;cursor:pointer;
+  box-shadow:0 8px 28px rgba(255,194,51,.5);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+.sticky-cta .btn2::after{
+  content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.65),transparent);
+  transform:skewX(-20deg);
+  animation:ctaShine 2.6s ease-in-out infinite;
+}
+
+/* ---------- WhatsApp floating button ---------- */
+.fab{
+  position:fixed;bottom:90px;right:22px;z-index:60;
+  width:58px;height:58px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  font-size:28px;box-shadow:0 8px 24px rgba(37,211,102,.5);
+  animation:fabpulse 2s infinite;
+}
+@keyframes fabpulse{0%,100%{box-shadow:0 8px 24px rgba(37,211,102,.5);}50%{box-shadow:0 8px 34px rgba(37,211,102,.85);}}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-photo img{height:380px;}
+  .video-row{grid-template-columns:1fr;}
+  .video-frame img,.video-frame video{height:280px;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .problem-stats{grid-template-columns:1fr;}
+  .solution-grid{grid-template-columns:1fr;}
+  .process{grid-template-columns:1fr;gap:20px;}
+  .pstep::before{display:none;}
+  .founder-row{grid-template-columns:1fr;}
+  .founder-photo img{height:300px;}
+  .featured-test-video video{height:280px;}
+  .compare{grid-template-columns:1fr;}
+  .bonus-grid{grid-template-columns:repeat(2,1fr);}
+  .section-title{font-size:28px;}
+  .hero h1{font-size:34px;}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-blobs">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+</div>
+
+<!-- Top urgency bar -->
+<div class="topbar">★ <span>Live Webinar — This Saturday, 7:00 PM IST</span> — Limited Seats, Reserve Yours Now!</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap" style="text-align:center;max-width:900px;">
+    <div class="reveal in" style="display:inline-block;">
+      <div class="eyebrow">🎓 Live Webinar · Manual + Automation Testing</div>
+    </div>
+    <h1 class="reveal in">Get a Software Testing Job in <span class="highlight">3–4 Months</span> — Guaranteed Placement Support</h1>
+    <div class="webinar-date reveal in delay-1">
+      <div class="wd-item">📅 <b>This Saturday</b></div>
+      <span class="wd-sep">|</span>
+      <div class="wd-item">🕖 <b>7:00 PM IST</b></div>
+      <span class="wd-sep">|</span>
+      <div class="wd-item">📍 <b>Live on Zoom</b></div>
+    </div>
+    <p class="sub reveal in delay-1">Beginner-friendly training for science graduates, career-gap candidates &amp; non-IT professionals who want a real IT career — without coding fear.</p>
+    <div class="badges reveal in delay-2" style="justify-content:center;">
+      <div class="badge">✅ <b>No Coding Background</b> Needed</div>
+      <div class="badge">✅ <b>Career Gap</b> Friendly</div>
+      <div class="badge">✅ <b>Placement</b> Support Included</div>
+    </div>
+  </div>
+
+  <!-- Video + Live bullets row -->
+  <div class="wrap video-row reveal in delay-2">
+    <div class="video-card">
+      <div class="video-card-head">▶ Watch This Before You Enroll</div>
+      <div class="video-frame" id="introVideoFrame">
+        <div class="live-pill"><span class="live-dot"></span> LIVE BATCH OPEN</div>
+        <img src="assets/raj-hero.jpg" alt="Raj Kumar - QA Career Pro Founder">
+        <button class="play-btn" onclick="playIntroVideo()" aria-label="Play video">▶</button>
+        <div class="ribbon">
+          <div style="font-weight:800;font-size:16px;">Yelamanchili Raj Kumar</div>
+          <div style="font-size:13px;color:#cfd2d8;">Founder, QA Career Pro · Bangalore</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="live-points">
+      <div class="live-points-head"><span class="live-dot-ring">LIVE</span></div>
+      <div class="point"><span class="pdot"></span><span class="ptext">How placement support works — from training to your <b>first QA job offer</b>.</span></div>
+      <div class="point"><span class="pdot"></span><span class="ptext">Why <b>coding fear</b> shouldn't stop you from getting into IT.</span></div>
+      <div class="point"><span class="pdot"></span><span class="ptext">How career-gap students get placed at <b>Wipro, Infosys &amp; Capgemini</b>.</span></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <button class="cta-btn reveal in delay-3" style="display:flex;margin:34px auto 6px;" onclick="window.open('https://wa.me/919108820888?text=Hi%2C%20I%20want%20to%20know%20more%20about%20QA%20Career%20Pro','_blank')">
+      🪑 Reserve Your Seat — <span class="cta-price"><span class="strike">₹999</span> ₹99</span>
+    </button>
+    <p class="cta-note reveal in delay-3" style="text-align:center;">Free career consultation · Replies within 30 minutes</p>
+
+    <div class="stats reveal delay-4 in">
+      <div class="stat"><div class="num" data-count="500">0</div><div class="lbl">Students Trained</div></div>
+      <div class="stat"><div class="num" data-count="90">0</div><div class="lbl">% Placement Rate</div></div>
+      <div class="stat"><div class="num" data-count="4">0</div><div class="lbl">Months to Job</div></div>
+      <div class="stat"><div class="num" data-count="50">0</div><div class="lbl">Hiring Partners</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow reveal" style="display:block;text-align:center;margin:0 auto 14px;width:fit-content;">THE PROBLEM</div>
+    <h2 class="section-title reveal">Are You Stuck Here?</h2>
+    <p class="section-sub reveal">If any of this sounds familiar, you're exactly who QA Career Pro was built for.</p>
+
+    <div class="problem-list">
+      <div class="problem-row2 reveal"><div class="problem-num">01</div><p>B.Tech / BCA / MCA graduate but still no IT job?</p></div>
+      <div class="problem-row2 reveal delay-1"><div class="problem-num">02</div><p>Career gap getting longer every month?</p></div>
+      <div class="problem-row2 reveal delay-2"><div class="problem-num">03</div><p>Afraid that coding will hold you back?</p></div>
+      <div class="problem-row2 reveal delay-3"><div class="problem-num">04</div><p>Applying everywhere, hearing nothing back?</p></div>
+    </div>
+
+    <div class="problem-stats reveal" id="problemStats">
+      <div class="problem-stat"><div class="num" data-target="47">0</div><div class="lbl">📨 Applications sent</div></div>
+      <div class="problem-stat"><div class="num" data-target="0">0</div><div class="lbl">📞 Interview calls</div></div>
+      <div class="problem-stat"><div class="num" data-target="21">0</div><div class="lbl">⏳ Days of silence</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (sliding strip) -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title reveal">Real Students. Real Jobs.</h2>
+    <p class="section-sub reveal">Hear it from students who made the switch into Software Testing.</p>
+  </div>
+  <div class="test-track-wrap">
+    <div class="test-track" id="testTrack"></div>
+  </div>
+  <div class="wrap" style="text-align:center;">
+    <button class="cta-btn reveal" style="display:inline-flex;margin-top:36px;" onclick="window.open('https://wa.me/919108820888?text=Hi%2C%20I%20want%20to%20know%20more%20about%20QA%20Career%20Pro','_blank')">
+      🪑 Reserve Your Seat — <span class="cta-price"><span class="strike">₹999</span> ₹99</span>
+    </button>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title reveal">Here's Everything You Walk Away With</h2>
+    <p class="section-sub reveal">One program. Manual + Automation Testing, mentorship, and placement support — all in one place.</p>
+    <div class="solution-grid">
+      <div class="scard reveal">
+        <div class="scard-num">01</div>
+        <div class="icon-ring"><span class="icon">📚</span></div>
+        <h3>Manual + Automation Testing</h3>
+        <p>Selenium, Java, API Testing, JIRA — industry-ready curriculum from scratch.</p>
+      </div>
+      <div class="scard reveal delay-1">
+        <div class="scard-num">02</div>
+        <div class="icon-ring"><span class="icon">🖥️</span></div>
+        <h3>Free LMS Access</h3>
+        <p>Learn on your own schedule — revisit any lesson anytime.</p>
+      </div>
+      <div class="scard reveal delay-2">
+        <div class="scard-num">03</div>
+        <div class="icon-ring"><span class="icon">🎤</span></div>
+        <h3>Mock Interviews</h3>
+        <p>Practice with real industry experts until you're interview-ready.</p>
+      </div>
+      <div class="scard reveal delay-3">
+        <div class="scard-num">04</div>
+        <div class="icon-ring"><span class="icon">📄</span></div>
+        <h3>Resume Preparation</h3>
+        <p>A resume built specifically to get noticed for QA roles.</p>
+      </div>
+      <div class="scard reveal delay-4">
+        <div class="scard-num">05</div>
+        <div class="icon-ring"><span class="icon">🤝</span></div>
+        <h3>1-on-1 Mentorship</h3>
+        <p>Personal guidance throughout your entire learning journey.</p>
+      </div>
+      <div class="scard reveal scard-highlight">
+        <div class="scard-num">06</div>
+        <div class="icon-ring"><span class="icon">🏢</span></div>
+        <h3>Placement Support</h3>
+        <p>We stay with you — support continues until you're placed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title reveal">Your Path From Zero to Placed</h2>
+    <p class="section-sub reveal">A simple, structured journey — even if you've never written a line of code.</p>
+
+    <div class="process">
+      <div class="pstep"><div class="pnum">1</div><h4>Enroll</h4><p>Join with zero prior IT background needed.</p></div>
+      <div class="pstep"><div class="pnum">2</div><h4>Learn</h4><p>Manual + Automation Testing, step by step.</p></div>
+      <div class="pstep"><div class="pnum">3</div><h4>Practice</h4><p>Real projects, mock interviews, mentorship.</p></div>
+      <div class="pstep"><div class="pnum">4</div><h4>Resume + Apply</h4><p>QA-focused resume, placement outreach begins.</p></div>
+      <div class="pstep"><div class="pnum">5</div><h4>Get Placed</h4><p>Land your role in 3–4 months with our support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section>
+  <div class="wrap founder-row">
+    <div class="founder-photo reveal">
+      <img src="assets/raj-suit.jpg" alt="Yelamanchili Raj Kumar - Founder, QA Career Pro">
+    </div>
+    <div class="reveal delay-1">
+      <div class="eyebrow">MEET YOUR MENTOR</div>
+      <h2 style="font-size:32px;font-weight:800;margin-bottom:14px;">Yelamanchili Raj Kumar</h2>
+      <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:18px;">
+        Founder of QA Career Pro, Bangalore. Raj has personally trained 500+ students — from absolute beginners to career-gap candidates — and guided them into real Software Testing roles at companies like Wipro, Infosys, and Capgemini.
+      </p>
+      <div class="founder-stats">
+        <div><b>500+</b><span>Students Trained</span></div>
+        <div><b>90%+</b><span>Placement Rate</span></div>
+        <div><b>50+</b><span>Hiring Partners</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title reveal">Self-Study vs QA Career Pro</h2>
+    <p class="section-sub reveal">Why hundreds of students chose a structured, supported path.</p>
+    <div class="compare">
+      <div class="col old reveal">
+        <h3>🚫 Learning Alone</h3>
+        <div class="row"><span class="mark">✘</span> No structured roadmap</div>
+        <div class="row"><span class="mark">✘</span> No mock interviews</div>
+        <div class="row"><span class="mark">✘</span> No resume guidance</div>
+        <div class="row"><span class="mark">✘</span> No placement support</div>
+        <div class="row"><span class="mark">✘</span> Stuck explaining career gaps alone</div>
+      </div>
+      <div class="col new reveal delay-2">
+        <h3>✅ QA Career Pro</h3>
+        <div class="row"><span class="mark">✓</span> Step-by-step curriculum</div>
+        <div class="row"><span class="mark">✓</span> Mock interviews with experts</div>
+        <div class="row"><span class="mark">✓</span> Resume built for QA roles</div>
+        <div class="row"><span class="mark">✓</span> Placement support till you're hired</div>
+        <div class="row"><span class="mark">✓</span> Career-gap-friendly mentorship</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUSES -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title reveal">Everything Included — No Hidden Add-ons</h2>
+    <p class="section-sub reveal">Just ₹99. Everything below is included.</p>
+    <div class="bonus-grid">
+      <div class="bonus reveal"><div class="tag">INCLUDED</div><div class="icon">📚</div><h4>Full LMS Access</h4><p>Lifetime access to all course material.</p></div>
+      <div class="bonus reveal delay-1"><div class="tag">INCLUDED</div><div class="icon">🎤</div><h4>Mock Interviews</h4><p>Unlimited practice rounds.</p></div>
+      <div class="bonus reveal delay-2"><div class="tag">INCLUDED</div><div class="icon">📄</div><h4>Resume Building</h4><p>QA-role optimized resume.</p></div>
+      <div class="bonus reveal delay-3"><div class="tag">INCLUDED</div><div class="icon">🏢</div><h4>Placement Support</h4><p>Until you're placed — no time limit.</p></div>
+    </div>
+
+    <button class="cta-btn reveal" style="display:flex;margin:36px auto 0;" onclick="window.open('https://wa.me/919108820888?text=Hi%2C%20I%20want%20to%20enroll%20in%20QA%20Career%20Pro','_blank')">
+      🪑 Reserve Your Seat — <span class="cta-price"><span class="strike">₹999</span> ₹99</span>
+    </button>
+  </div>
+</section>
+
+<!-- FEATURED TESTIMONIAL (big screen, stacked one after another) -->
+<section>
+  <div class="wrap">
+    <h2 class="section-title reveal">Hear It Straight From Our Students</h2>
+    <p class="section-sub reveal">Real placements. Real voices. One story at a time.</p>
+    <div class="featured-test-list" id="featuredList"></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section>
+  <div class="wrap" style="text-align:center;">
+    <h2 class="section-title reveal">Start Your IT Career Today</h2>
+    <div class="price-box reveal">
+      <div class="old">₹999</div>
+      <div class="now">₹99</div>
+      <p style="color:var(--muted);margin-top:8px;">One-time payment · Lifetime placement support</p>
+      <div class="seats">⚠️ Limited seats for this batch</div>
+      <button class="cta-btn" style="margin-top:22px;width:100%;justify-content:center;" onclick="window.open('https://wa.me/919108820888?text=Hi%2C%20I%20want%20to%20enroll%20in%20QA%20Career%20Pro','_blank')">
+        🪑 Reserve Your Seat — <span class="cta-price"><span class="strike">₹999</span> ₹99</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap" style="max-width:760px;">
+    <h2 class="section-title reveal">Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Will I get a job after the course? <span class="plus">+</span></div>
+      <div class="faq-a">We provide unlimited placement support until you're placed. Our track record: 90%+ of students placed within 3–4 months, at companies like Wipro, Infosys, Capgemini and more.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">I have zero coding background. Can I still join? <span class="plus">+</span></div>
+      <div class="faq-a">Absolutely. Our curriculum starts from the basics — Manual Testing requires no coding at all, and we build up to Automation step by step.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">I have a career gap. Will that be a problem? <span class="plus">+</span></div>
+      <div class="faq-a">Not at all. We specifically help you frame your gap in your resume and interviews. Many of our placed students had 1–3 year gaps.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Is ₹99 worth it? <span class="plus">+</span></div>
+      <div class="faq-a">An entry-level Software Tester earns ₹3.5–5 LPA — that's ₹30,000–40,000/month. At ₹99, this is the lowest-risk step you can take toward that outcome.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 QA Career Pro — Yelamanchili Raj Kumar. All rights reserved.</p>
+    <p style="margin-top:8px;">📞 Need help? <a class="wa" href="https://wa.me/919108820888">WhatsApp: 9108820888</a> · 📧 testingtalks07@gmail.com</p>
+  </div>
+</footer>
+
+<!-- Sticky bottom CTA -->
+<div class="sticky-cta">
+  <div class="left">
+    <div class="price">₹99 <span style="color:var(--muted);font-weight:400;font-size:12px;">one-time</span></div>
+    <p>90%+ placement rate · Limited seats</p>
+  </div>
+  <button class="btn2" onclick="window.open('https://wa.me/919108820888?text=Hi%2C%20I%20want%20to%20know%20more%20about%20QA%20Career%20Pro','_blank')">Reserve Seat — <span class="strike" style="opacity:.7;">₹999</span> ₹99 →</button>
+</div>
+
+<!-- WhatsApp floating button -->
+<a class="fab" href="https://wa.me/919108820888" target="_blank">💬</a>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+},{threshold:0.15});
+reveals.forEach(el=>obs.observe(el));
+
+// Animated counters
+const counters = document.querySelectorAll('[data-count]');
+const counterObs = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const el = entry.target;
+      const target = parseInt(el.getAttribute('data-count'));
+      let cur = 0;
+      const step = Math.max(1, Math.ceil(target/40));
+      const tick = ()=>{
+        cur += step;
+        if(cur >= target){ el.textContent = target; }
+        else { el.textContent = cur; requestAnimationFrame(tick); }
+      };
+      tick();
+      counterObs.unobserve(el);
+    }
+  });
+},{threshold:0.4});
+counters.forEach(el=>counterObs.observe(el));
+
+// Process stepper: animate circles + connector lines on scroll-into-view
+const processEl = document.querySelector('.process');
+if(processEl){
+  const processObs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        processEl.classList.add('animate');
+        processObs.unobserve(processEl);
+      }
+    });
+  },{threshold:0.35});
+  processObs.observe(processEl);
+}
+
+// Problem stat strip: count up to target on scroll-into-view
+const problemStats = document.getElementById('problemStats');
+if(problemStats){
+  const statObs = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        problemStats.querySelectorAll('.num').forEach(el=>{
+          const target = parseInt(el.dataset.target, 10);
+          if(target === 0){ return; }
+          let cur = 0;
+          const step = Math.max(1, Math.round(target/30));
+          const tick = ()=>{
+            cur += step;
+            if(cur >= target){ el.textContent = target; }
+            else { el.textContent = cur; requestAnimationFrame(tick); }
+          };
+          tick();
+        });
+        statObs.unobserve(problemStats);
+      }
+    });
+  },{threshold:0.5});
+  statObs.observe(problemStats);
+}
+
+// FAQ accordion
+function toggleFaq(el){
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+
+// Intro video — swap poster image for a real <video> on click.
+// Drop the real intro video file into assets/videos/intro.mp4 and update the src below.
+function playIntroVideo(){
+  const frame = document.getElementById('introVideoFrame');
+  frame.innerHTML = `
+    <video controls autoplay playsinline>
+      <source src="assets/videos/intro.mp4" type="video/mp4">
+    </video>`;
+}
+
+// Testimonial data — real video clips + real photos from assets/videos/ and assets/images/testimonials/
+const testimonials = [
+  {name:"Anil Kumar", role:"Placed — Bangalore", quote:"QA Career Pro helped me get placed after struggling for months. The mentorship and mock interviews made all the difference.", initials:"AK", videoSrc:"assets/videos/anil.mp4", photo:"assets/images/testimonials/anil.jpg"},
+  {name:"Satish", role:"Manual → Automation Tester", quote:"I had zero coding background. Today I'm working as an Automation Tester thanks to the structured training here.", initials:"S", videoSrc:"assets/videos/satish.mp4", photo:"assets/images/testimonials/satish.jpg"},
+  {name:"Vani Jadhav", role:"Quality Aspire", quote:"The placement support didn't stop until I actually got hired. That's rare and it's exactly what I needed.", initials:"VJ", videoSrc:"assets/videos/vani.mp4", photo:"assets/images/testimonials/vani.jpg"},
+  {name:"Basalingappa", role:"Software Tester", quote:"Career gap was my biggest fear. QA Career Pro helped me turn that into a strength during interviews.", initials:"B", videoSrc:"assets/videos/basalingappa.mp4", photo:"assets/images/testimonials/basalingappa.jpg"},
+  {name:"Manoj", role:"QA Engineer", quote:"From a non-IT background to a QA Engineer role — this program made the transition possible.", initials:"M", videoSrc:"assets/videos/manoj.mp4", photo:"assets/images/testimonials/manoj.jpg"},
+  {name:"Rajesh", role:"Software Tester", quote:"Best decision for my career. The mock interviews alone were worth the entire fee.", initials:"R", videoSrc:"assets/videos/rajesh.mp4", photo:"assets/images/testimonials/rajesh.jpg"}
+];
+// Split so the slider and the big-screen section never show the same student
+const sliderTestimonials = testimonials.slice(0, 3);
+const featuredTestimonials = testimonials.slice(3);
+
+const track = document.getElementById('testTrack');
+function renderCard(t){
+  const videoBlock = t.videoSrc
+    ? `<video class="tcard-video" controls preload="none" playsinline poster="${t.photo}"><source src="${t.videoSrc}" type="video/mp4"></video>`
+    : '';
+  const avatarBlock = t.photo
+    ? `<img class="avatar-photo" src="${t.photo}" alt="${t.name}">`
+    : `<div class="avatar">${t.initials}</div>`;
+  return `<div class="tcard">
+    ${videoBlock}
+    <div class="who">
+      ${avatarBlock}
+      <div><div class="name">${t.name}</div><div class="role">${t.role}</div></div>
+    </div>
+    <div class="quote">"${t.quote}"</div>
+    <div class="stars">★★★★★</div>
+  </div>`;
+}
+const sliderSet = sliderTestimonials.map(renderCard).join('');
+track.innerHTML = sliderSet + sliderSet + sliderSet + sliderSet;
+
+// Featured testimonials — big screen, stacked one after another
+function renderFeaturedCard(t){
+  return `<div class="featured-test-card">
+    <div class="featured-test-video">
+      <video controls preload="none" playsinline poster="${t.photo}"><source src="${t.videoSrc}" type="video/mp4"></video>
+      <div class="featured-test-tag">
+        <img src="${t.photo}" alt="${t.name}">
+        <span>${t.name}</span>
+      </div>
+    </div>
+    <div class="featured-test-caption">"${t.quote}"</div>
+    <div class="featured-test-attrib">~ ${t.name}, ${t.role}</div>
+  </div>`;
+}
+document.getElementById('featuredList').innerHTML = featuredTestimonials.map(renderFeaturedCard).join('');
+</script>
+
+</body>
+</html>
