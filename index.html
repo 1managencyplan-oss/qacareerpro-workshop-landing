@@ -1000,17 +1000,18 @@ function playIntroVideo(){
 
 // Testimonial data — real video clips + real photos from assets/videos/ and assets/images/testimonials/
 const testimonials = [
-  {name:"Anil Kumar", role:"Placed — Bangalore", quote:"QA Career Pro helped me get placed after struggling for months. The mentorship and mock interviews made all the difference.", initials:"AK", videoSrc:"assets/videos/anil.mp4", photo:"assets/images/testimonials/anil.jpg"},
-  {name:"Satish", role:"Manual → Automation Tester", quote:"I had zero coding background. Today I'm working as an Automation Tester thanks to the structured training here.", initials:"S", videoSrc:"assets/videos/satish.mp4", photo:"assets/images/testimonials/satish.jpg"},
+  {name:"Anil Kumar Koda", role:"Placed — Cila Labs, Bengaluru", quote:"QA Career Pro helped me get placed after struggling for months. The mentorship and mock interviews made all the difference.", initials:"AK", videoSrc:"assets/videos/anil.mp4", photo:"assets/images/testimonials/anil.jpg"},
+  {name:"Sateesh Kumar Pinninti", role:"Placed — FIN Infocom, Hyderabad", quote:"I had zero coding background. Today I'm working as an Automation Tester thanks to the structured training here.", initials:"S", videoSrc:"assets/videos/satish.mp4", photo:"assets/images/testimonials/satish.jpg"},
   {name:"Charsha", role:"Software Tester", quote:"The structured curriculum and mentorship gave me the confidence to walk into QA interviews.", initials:"C", videoSrc:"assets/videos/charsha.mp4", photo:"assets/images/testimonials/charsha.jpg"},
   {name:"Dyuvraj", role:"Software Tester", quote:"From zero IT background to a real testing role — this program made it possible.", initials:"D", videoSrc:"assets/videos/dyuvraj.mp4", photo:"assets/images/testimonials/dyuvraj.jpg"},
   {name:"Manoj", role:"QA Engineer", quote:"From a non-IT background to a QA Engineer role — this program made the transition possible.", initials:"M", videoSrc:"assets/videos/manoj.mp4", photo:"assets/images/testimonials/manoj.jpg"},
   {name:"Rajesh", role:"Software Tester", quote:"Best decision for my career. The mock interviews alone were worth the entire fee.", initials:"R", videoSrc:"assets/videos/rajesh.mp4", photo:"assets/images/testimonials/rajesh.jpg"},
+  {name:"Basalingappa", role:"Software Tester", quote:"Career gap was my biggest fear. QA Career Pro helped me turn that into a strength during interviews.", initials:"B", videoSrc:"assets/videos/basalingappa.mp4", photo:"assets/images/testimonials/basalingappa.jpg"},
   {name:"Vani Jadhav", role:"Quality Aspire", quote:"The placement support didn't stop until I actually got hired. That's rare and it's exactly what I needed.", initials:"VJ", videoSrc:"assets/videos/vani.mp4", photo:"assets/images/testimonials/vani.jpg"}
 ];
 // Split so the slider and the big-screen section never show the same student; Vani stays last (bottom) in the featured list
-const sliderTestimonials = testimonials.slice(0, 3);
-const featuredTestimonials = testimonials.slice(3);
+const sliderTestimonials = testimonials.slice(0, 4);
+const featuredTestimonials = testimonials.slice(4);
 
 const track = document.getElementById('testTrack');
 function renderCard(t){
