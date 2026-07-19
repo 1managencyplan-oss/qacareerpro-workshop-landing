@@ -1112,7 +1112,7 @@ document.getElementById('featuredList').innerHTML = featuredTestimonials.map(ren
     <h2>Almost there! 🎯</h2>
     <p>Enter your details — then pay ₹99 to confirm your seat.</p>
     <div class="pay-field"><label>Full Name</label><input type="text" id="payName" placeholder="Your name" /></div>
-    <div class="pay-field"><label>WhatsApp Number</label><input type="tel" id="payPhone" placeholder="10-digit mobile number" maxlength="10" /></div>
+    <div class="pay-field"><label>WhatsApp Number</label><input type="tel" id="payPhone" placeholder="10-digit mobile number" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')" /></div>
     <div class="pay-field"><label>Email ID</label><input type="email" id="payEmail" placeholder="your@email.com" /></div>
     <button id="paySubmitBtn" onclick="submitPayForm()">Proceed to Pay ₹99 →</button>
     <p class="pay-note">🔒 Secure payment via Cashfree · Takes 30 seconds</p>
@@ -1138,7 +1138,7 @@ function submitPayForm(){
   var phone = document.getElementById('payPhone').value.trim();
   var email = document.getElementById('payEmail').value.trim();
   if(!name){ alert('Please enter your name'); return; }
-  if(!phone || phone.length < 10){ alert('Please enter a valid 10-digit number'); return; }
+  if(!phone || phone.length !== 10 || !/^[6-9]\d{9}$/.test(phone)){ alert('Please enter a valid 10-digit Indian mobile number'); return; }
   if(!email || !email.includes('@')){ alert('Please enter a valid email'); return; }
   var btn = document.getElementById('paySubmitBtn');
   btn.disabled = true;
