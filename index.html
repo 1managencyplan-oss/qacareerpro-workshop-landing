@@ -1157,7 +1157,18 @@ function submitPayForm(){
   // NOTE: Meta Pixel 'Lead' is NOT fired here. It fires on thank-you.html, which the
   // academy checkout redirects to only after a SUCCESSFUL payment.
 
-  // 1) Log submission to Pabbly webhook (fire-and-forget, survives the redirect via keepalive)
+  // Build the checkout redirect first (phone already validated to 10 digits above)
+  var checkoutUrl = CHECKOUT_URL
+    + '?name=' + encodeURIComponent(name)
+    + '&email=' + encodeURIComponent(email)
+    + '&phone=' + encodeURIComponent(phone)
+    + '&purchaseNow=true'
+    + '&couponcode=qacareerpro';
+  var didRedirect = false;
+  function goCheckout(){ if (didRedirect) return; didRedirect = true; window.location.href = checkoutUrl; }
+
+  // Log the submission to BOTH sheets, then redirect once both requests have completed.
+  // (Apps Script is slow — a fire-and-forget gets cancelled by the redirect, so we wait.)
   var webhookUrl = WEBHOOK_URL
     + '?date=' + encodeURIComponent(istDate)
     + '&time=' + encodeURIComponent(istTime)
@@ -1165,23 +1176,16 @@ function submitPayForm(){
     + '&email=' + encodeURIComponent(email)
     + '&phone=' + encodeURIComponent(phone)
     + '&source_url=' + encodeURIComponent(window.location.href);
-  try { fetch(webhookUrl, { method: 'GET', mode: 'no-cors', keepalive: true }); } catch(e){}
-
-  // 1b) Also log to the legacy Google Sheet via Apps Script (same params as before, fire-and-forget)
   var scriptUrl = SCRIPT_URL + '?source=form'
     + '&name=' + encodeURIComponent(name)
     + '&phone=' + encodeURIComponent(phone)
     + '&email=' + encodeURIComponent(email);
-  try { fetch(scriptUrl, { method: 'GET', mode: 'no-cors', keepalive: true }); } catch(e){}
 
-  // 2) Redirect to academy checkout (phone is already validated to 10 digits above)
-  var checkoutUrl = CHECKOUT_URL
-    + '?name=' + encodeURIComponent(name)
-    + '&email=' + encodeURIComponent(email)
-    + '&phone=' + encodeURIComponent(phone)
-    + '&purchaseNow=true'
-    + '&couponcode=qacareerpro';
-  setTimeout(function(){ window.location.href = checkoutUrl; }, 300);
+  function logTo(url){ try { return fetch(url, { method: 'GET', mode: 'no-cors' }); } catch(e){ return Promise.resolve(); } }
+  Promise.all([logTo(webhookUrl), logTo(scriptUrl)]).then(goCheckout, goCheckout);
+
+  // Safety net: never hold the user more than 3s even if a logger hangs
+  setTimeout(goCheckout, 3000);
 }
 </script>
 
