@@ -1122,6 +1122,8 @@ document.getElementById('featuredList').innerHTML = featuredTestimonials.map(ren
 <script>
 // Pabbly webhook — logs every submission (IST date/time, name, email, phone) to a sheet
 var WEBHOOK_URL = "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTY5MDYzMTA0MzI1MjZlNTUzMDUxMzYi_pc";
+// Google Apps Script — legacy sheet logging (kept in addition to Pabbly)
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRTg4MnV5VLyXlIss-uY3ZcbS3e3smwYHLsSHSad0-c4HEGLZ8KTtRuf3VhVIDDNDI/exec";
 // Academy checkout — form redirects here after submit
 var CHECKOUT_URL = "https://academy.qacareerpro.com/web/checkout/6a4a35460ca062be8694a801";
 
@@ -1164,6 +1166,13 @@ function submitPayForm(){
     + '&phone=' + encodeURIComponent(phone)
     + '&source_url=' + encodeURIComponent(window.location.href);
   try { fetch(webhookUrl, { method: 'GET', mode: 'no-cors', keepalive: true }); } catch(e){}
+
+  // 1b) Also log to the legacy Google Sheet via Apps Script (same params as before, fire-and-forget)
+  var scriptUrl = SCRIPT_URL + '?source=form'
+    + '&name=' + encodeURIComponent(name)
+    + '&phone=' + encodeURIComponent(phone)
+    + '&email=' + encodeURIComponent(email);
+  try { fetch(scriptUrl, { method: 'GET', mode: 'no-cors', keepalive: true }); } catch(e){}
 
   // 2) Redirect to academy checkout (phone is already validated to 10 digits above)
   var checkoutUrl = CHECKOUT_URL
