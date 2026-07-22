@@ -873,7 +873,7 @@ footer a.wa{color:var(--green);font-weight:700;}
         <div style="display:flex;align-items:flex-start;gap:14px;">
           <div style="background:var(--gold);color:#000;font-weight:800;font-size:13px;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
           <div>
-            <p style="font-weight:600;margin-bottom:2px;">Pay ₹99 via Cashfree</p>
+            <p style="font-weight:600;margin-bottom:2px;">Pay ₹99 securely</p>
             <p style="color:var(--muted);font-size:13px;">UPI, Card, Net Banking — all accepted</p>
           </div>
         </div>
@@ -1115,7 +1115,7 @@ document.getElementById('featuredList').innerHTML = featuredTestimonials.map(ren
     <div class="pay-field"><label>WhatsApp Number</label><input type="tel" id="payPhone" placeholder="10-digit mobile number" maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'')" /></div>
     <div class="pay-field"><label>Email ID</label><input type="email" id="payEmail" placeholder="your@email.com" /></div>
     <button id="paySubmitBtn" onclick="submitPayForm()">Proceed to Pay ₹99 →</button>
-    <p class="pay-note">🔒 Secure payment via Cashfree · Takes 30 seconds</p>
+    <p class="pay-note">🔒 Secure payment · Takes 30 seconds</p>
   </div>
 </div>
 
@@ -1152,10 +1152,8 @@ function submitPayForm(){
   var istDate = now.toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata' }); // DD/MM/YYYY
   var istTime = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true }); // hh:mm:ss am/pm
 
-  // Fire Meta Pixel Lead event
-  if (typeof fbq !== 'undefined') {
-    fbq('track', 'Lead', { content_name: '1Day Masterclass', currency: 'INR', value: 99 });
-  }
+  // NOTE: Meta Pixel 'Lead' is NOT fired here. It fires on thank-you.html, which the
+  // academy checkout redirects to only after a SUCCESSFUL payment.
 
   // 1) Log submission to Pabbly webhook (fire-and-forget, survives the redirect via keepalive)
   var webhookUrl = WEBHOOK_URL
