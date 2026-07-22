@@ -1120,7 +1120,10 @@ document.getElementById('featuredList').innerHTML = featuredTestimonials.map(ren
 </div>
 
 <script>
-var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRTg4MnV5VLyXlIss-uY3ZcbS3e3smwYHLsSHSad0-c4HEGLZ8KTtRuf3VhVIDDNDI/exec";
+// Pabbly webhook — logs every submission (IST date/time, name, email, phone) to a sheet
+var WEBHOOK_URL = "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwNTY5MDYzMTA0MzI1MjZlNTUzMDUxMzYi_pc";
+// Academy checkout — form redirects here after submit
+var CHECKOUT_URL = "https://academy.qacareerpro.com/web/checkout/6a4a35460ca062be8694a801";
 
 function openPayModal(){
   document.getElementById('payModal').classList.add('open');
@@ -1143,15 +1146,35 @@ function submitPayForm(){
   var btn = document.getElementById('paySubmitBtn');
   btn.disabled = true;
   btn.textContent = 'Redirecting to payment...';
+
+  // Current date & time in IST for the submissions sheet
+  var now = new Date();
+  var istDate = now.toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata' }); // DD/MM/YYYY
+  var istTime = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true }); // hh:mm:ss am/pm
+
   // Fire Meta Pixel Lead event
   if (typeof fbq !== 'undefined') {
     fbq('track', 'Lead', { content_name: '1Day Masterclass', currency: 'INR', value: 99 });
   }
-  var url = SCRIPT_URL + '?source=form'
+
+  // 1) Log submission to Pabbly webhook (fire-and-forget, survives the redirect via keepalive)
+  var webhookUrl = WEBHOOK_URL
+    + '?date=' + encodeURIComponent(istDate)
+    + '&time=' + encodeURIComponent(istTime)
     + '&name=' + encodeURIComponent(name)
+    + '&email=' + encodeURIComponent(email)
     + '&phone=' + encodeURIComponent(phone)
-    + '&email=' + encodeURIComponent(email);
-  window.location.href = url;
+    + '&source_url=' + encodeURIComponent(window.location.href);
+  try { fetch(webhookUrl, { method: 'GET', mode: 'no-cors', keepalive: true }); } catch(e){}
+
+  // 2) Redirect to academy checkout (phone is already validated to 10 digits above)
+  var checkoutUrl = CHECKOUT_URL
+    + '?name=' + encodeURIComponent(name)
+    + '&email=' + encodeURIComponent(email)
+    + '&phone=' + encodeURIComponent(phone)
+    + '&purchaseNow=true'
+    + '&couponcode=qacareerpro';
+  setTimeout(function(){ window.location.href = checkoutUrl; }, 300);
 }
 </script>
 
