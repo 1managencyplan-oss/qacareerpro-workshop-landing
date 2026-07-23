@@ -1154,8 +1154,12 @@ function submitPayForm(){
   var istDate = now.toLocaleDateString('en-GB', { timeZone: 'Asia/Kolkata' }); // DD/MM/YYYY
   var istTime = now.toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata', hour12: true }); // hh:mm:ss am/pm
 
-  // NOTE: Meta Pixel 'Lead' is NOT fired here. It fires on thank-you.html, which the
-  // academy checkout redirects to only after a SUCCESSFUL payment.
+  // Fire Meta Pixel 'InitiateCheckout' — a purchase-INTENT signal (form completed + heading
+  // to payment), NOT a junk-lead form-fill. 'Purchase' fires later on the academy success page.
+  // No 'Lead' event is fired, so the campaign optimizes toward buyers, not cheap form-fills.
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'InitiateCheckout', { content_name: '1Day Masterclass', currency: 'INR', value: 99.00 });
+  }
 
   // Build the checkout redirect first (phone already validated to 10 digits above)
   var checkoutUrl = CHECKOUT_URL
