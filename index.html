@@ -581,15 +581,14 @@ footer a.wa{color:var(--green);font-weight:700;}
       <div class="video-card-head">▶ Watch This Before You Enroll</div>
       <div class="video-frame" id="introVideoFrame" style="position:relative;padding:0;background:#000;">
         <div class="live-pill" style="position:absolute;top:14px;left:14px;z-index:2;"><span class="live-dot"></span> LIVE BATCH OPEN</div>
-        <div style="position:relative;width:100%;padding-top:56.25%;">
-          <iframe
-            src="https://www.youtube.com/embed/Rtz5P2OZKsI?rel=0&modestbranding=1"
-            title="QA Career Pro — Webinar Introduction"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;">
-          </iframe>
+        <div id="introVideoBox" style="position:relative;width:100%;padding-top:56.25%;">
+          <button type="button" id="introVideoPlay" aria-label="Play webinar introduction video"
+            onclick="playIntroVideo()"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;padding:0;cursor:pointer;background:#000 url('https://i.ytimg.com/vi/Rtz5P2OZKsI/hqdefault.jpg') center/cover no-repeat;">
+            <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:68px;height:48px;border-radius:12px;background:#f00;display:flex;align-items:center;justify-content:center;">
+              <span style="border-style:solid;border-width:10px 0 10px 18px;border-color:transparent transparent transparent #fff;margin-left:4px;"></span>
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -633,7 +632,7 @@ footer a.wa{color:var(--green);font-weight:700;}
 
     <div class="hero-intro-grid">
       <div class="reveal">
-        <div class="founder-ring"><img src="assets/raj-thumbsup.jpg" alt="Rajkumar Yelamanchili - Founder, QA Career Pro"></div>
+        <div class="founder-ring"><img src="assets/raj-thumbsup.jpg" loading="lazy" decoding="async" alt="Rajkumar Yelamanchili - Founder, QA Career Pro"></div>
         <div class="founder-info">
           <h3>Rajkumar Yelamanchili</h3>
           <p>Founder – QACareerPro™ | 16+ Years in QA | 1000+ Interviews Taken | 5000+ Hours Trained — mentor to 10,000+ testers across India, UAE, UK, and USA.</p>
@@ -772,13 +771,13 @@ footer a.wa{color:var(--green);font-weight:700;}
     <p class="section-sub reveal">Live inside the webinar — straight from real classroom sessions.</p>
     <div class="parts-grid">
       <div class="part-card reveal">
-        <div class="part-photo"><img src="assets/training/part1-mindset.jpg" alt="QA Career Pro live training session - mindset and strategy"></div>
+        <div class="part-photo"><img src="assets/training/part1-mindset.jpg" loading="lazy" decoding="async" alt="QA Career Pro live training session - mindset and strategy"></div>
         <div class="part-tag">PART 01</div>
         <h4>🧠 Mindset + Strategy of Job-Cracking QA Professionals</h4>
         <p class="part-quote">"Your mindset writes your resume before your skills do."</p>
       </div>
       <div class="part-card reveal delay-2">
-        <div class="part-photo"><img src="assets/training/part2-skills.jpg" alt="QA Career Pro live training session - skills and tools"></div>
+        <div class="part-photo"><img src="assets/training/part2-skills.jpg" loading="lazy" decoding="async" alt="QA Career Pro live training session - skills and tools"></div>
         <div class="part-tag">PART 02</div>
         <h4>🛠️ The Skills, Tools &amp; Frameworks That Get You Hired</h4>
         <p class="part-quote">"You don't need to learn everything. You need to master <b>what matters</b>."</p>
@@ -1034,7 +1033,7 @@ function renderCard(t){
     ? `<video class="tcard-video" controls preload="none" playsinline poster="${t.photo}"><source src="${t.videoSrc}" type="video/mp4"></video>`
     : '';
   const avatarBlock = t.photo
-    ? `<img class="avatar-photo" src="${t.photo}" alt="${t.name}">`
+    ? `<img class="avatar-photo" src="${t.photo}" loading="lazy" decoding="async" alt="${t.name}">`
     : `<div class="avatar">${t.initials}</div>`;
   return `<div class="tcard">
     ${videoBlock}
@@ -1055,7 +1054,7 @@ function renderFeaturedCard(t){
     <div class="featured-test-video">
       <video controls preload="none" playsinline poster="${t.photo}"><source src="${t.videoSrc}" type="video/mp4"></video>
       <div class="featured-test-tag">
-        <img src="${t.photo}" alt="${t.name}">
+        <img src="${t.photo}" loading="lazy" decoding="async" alt="${t.name}">
         <span>${t.name}</span>
       </div>
     </div>
@@ -1104,6 +1103,20 @@ var WEBHOOK_URL = "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjcwN
 var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxRTg4MnV5VLyXlIss-uY3ZcbS3e3smwYHLsSHSad0-c4HEGLZ8KTtRuf3VhVIDDNDI/exec";
 // Academy checkout — form redirects here after submit
 var CHECKOUT_URL = "https://academy.qacareerpro.com/web/checkout/6a4a35460ca062be8694a801";
+
+function playIntroVideo(){
+  var box = document.getElementById('introVideoBox');
+  var btn = document.getElementById('introVideoPlay');
+  if(!box || !btn) return;
+  var f = document.createElement('iframe');
+  f.src = 'https://www.youtube.com/embed/Rtz5P2OZKsI?rel=0&modestbranding=1&autoplay=1';
+  f.title = 'QA Career Pro — Webinar Introduction';
+  f.setAttribute('frameborder','0');
+  f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+  f.setAttribute('allowfullscreen','');
+  f.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+  box.replaceChild(f, btn);
+}
 
 function openPayModal(){
   document.getElementById('payModal').classList.add('open');
